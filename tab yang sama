@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Table Cells</title>
+    <!-- Load jQuery from Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+        <tr>
+            <td class="clickable-cell" data-url="halaman1.php">Row 1, Cell 1</td>
+            <td class="clickable-cell" data-url="halaman2.php">Row 1, Cell 2</td>
+            <td class="clickable-cell" data-url="halaman3.php">Row 1, Cell 3</td>
+        </tr>
+        <tr>
+            <td class="clickable-cell" data-url="halaman4.php">Row 2, Cell 1</td>
+            <td class="clickable-cell" data-url="halaman5.php">Row 2, Cell 2</td>
+            <td class="clickable-cell" data-url="halaman6.php">Row 2, Cell 3</td>
+        </tr>
+        <tr>
+            <td class="clickable-cell" data-url="halaman7.php">Row 3, Cell 1</td>
+            <td class="clickable-cell" data-url="halaman8.php">Row 3, Cell 2</td>
+            <td class="clickable-cell" data-url="halaman9.php">Row 3, Cell 3</td>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            // Menangani klik pada sel tabel dengan kelas "clickable-cell"
+            $('.clickable-cell').click(function() {
+                // Dapatkan nilai URL dari data atribut "data-url" sel yang diklik
+                var halaman_tujuan = $(this).data('url');
+                // Buka halaman yang sesuai saat sel tabel diklik
+                window.location.href = halaman_tujuan;
+            });
+        });
+    </script>
+</body>
+
+</html>
